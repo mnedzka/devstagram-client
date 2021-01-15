@@ -1,0 +1,90 @@
+@import '../../config';
+
+.signup{
+  width: 100%;
+  height: calc(100vh - 70px);
+
+  background-color: $backgroundColor;
+
+  &__container{
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__form{
+    transform: translateY(-70px);
+
+    background-color: $postBackground;
+
+    padding: 40px 60px;
+
+    border-radius: 5px;
+
+    &__input{
+      position: relative;
+
+      & input{
+        width: 250px;
+        height: 35px;
+
+        margin: 10px 0;
+
+        background: transparent ;
+        color: white !important;
+
+        border: 1px solid $textColor;
+        outline: none;
+
+        font-family: "Jetbrains Mono";
+        font-size: 12px;
+
+        &:focus ~ label,
+        &:valid ~ label{
+          top: 1px;
+          left: 8px;
+
+          padding: 1px 3px;
+          background-color: $postBackground
+        }
+
+        
+        
+      }
+    }
+
+    &__label{
+      position: absolute;
+
+      color: $textColor;
+
+      font-family: "Jetbrains Mono";
+      font-weight: 700;
+      font-size: 11px;
+
+      left: 5px;
+      top: 20px;
+
+      transition: 0.5s all ease-in-out
+    }
+  }
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0px 1000px $postBackground inset;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}
+
+input:-webkit-autofill:focus {
+
+  -webkit-text-fill-color: rgb(255, 255, 255);
+}

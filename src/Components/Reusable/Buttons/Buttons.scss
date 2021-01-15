@@ -1,0 +1,53 @@
+@import '../../config';
+
+.button{
+  height: 35px;
+  outline: none;
+
+  border-radius: 5px;
+
+  font-family: "Jetbrains Mono";
+
+  color: white;
+
+  margin: 0 10px 0 0;
+
+  &.md{
+    width: 120px;
+    font-size: 15px;
+
+    @media (max-width: 800px){
+      width: 70px
+    }
+  }
+
+
+  &.lg{
+    width: 100%;
+    font-size: 14px
+  }
+  &.outlined{
+    // background-color: #4fd1c421;
+    background-color: #204044;
+    border: 2px solid  #4fd1c421;
+    transition: 0.5s all ease-in-out;
+
+    font-weight: 700;
+    &:hover{
+      background-color: $textColor;
+      color: $backgroundColor;
+    }
+  }
+
+  &.filled{
+    background-color: $textColor;
+    color: $backgroundColor;
+    transition: 0.5s all ease-in-out;
+
+    font-weight: 700;
+
+    &:hover{
+      background: #4fd1c4c2;
+    }
+  }
+}

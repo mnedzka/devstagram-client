@@ -1,0 +1,50 @@
+  @import '../../../config';
+
+
+.post{
+  width: 100%;
+  max-height: 350px;
+
+  overflow: hidden;
+
+  color: white;
+  background-color: $postBackground;
+
+  font-family: $fontPrimary;
+
+  margin: 20px 0;
+
+  &__container{
+    width: 95%;
+    margin: auto;
+
+    padding: 20px 0;
+  }
+
+  &__subreddit h1{
+    font-size: 14px;
+    font-weight: 700;
+
+    color: $textColor
+  }
+
+  &__user h3{
+    font-size: 12px;
+
+    color: $fontFade;
+
+    font-weight: 500
+  }
+
+  &__title h1{
+    font-size: 25px;
+
+    font-weight: 700;
+
+    margin: 15px 0 0 0;
+  }
+
+  &__content p{
+    color: $fontFade
+  }
+}

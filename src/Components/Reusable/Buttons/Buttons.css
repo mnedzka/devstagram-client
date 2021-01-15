@@ -1,0 +1,47 @@
+.button {
+  height: 35px;
+  outline: none;
+  border-radius: 5px;
+  font-family: "Jetbrains Mono";
+  color: white;
+  margin: 0 10px 0 0;
+}
+
+.button.md {
+  width: 120px;
+  font-size: 15px;
+}
+
+@media (max-width: 800px) {
+  .button.md {
+    width: 70px;
+  }
+}
+
+.button.lg {
+  width: 100%;
+  font-size: 14px;
+}
+
+.button.outlined {
+  background-color: #204044;
+  border: 2px solid  #4fd1c421;
+  transition: 0.5s all ease-in-out;
+  font-weight: 700;
+}
+
+.button.outlined:hover {
+  background-color: #4FD1C5;
+  color: #1A202C;
+}
+
+.button.filled {
+  background-color: #4FD1C5;
+  color: #1A202C;
+  transition: 0.5s all ease-in-out;
+  font-weight: 700;
+}
+
+.button.filled:hover {
+  background: #4fd1c4c2;
+}
