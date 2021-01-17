@@ -6,6 +6,9 @@
 
   background-color: $postBackground;
 
+  position: sticky;
+  top: 0;
+
 
   &__container{
     width: 90%;

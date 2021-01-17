@@ -9,9 +9,14 @@ export const AuthProvider = ({children}) => {
 
   const [currentUser, setCurrentUser] = useState('')
 
-  const signUp = async(email,password) => {
+  const signUp = async(email,password, displayName) => {
     try{
       const userSignedUp = await auth.createUserWithEmailAndPassword(email,password)
+      userSignedUp.user.updateProfile(
+        {
+          displayName
+        }
+      )
       return userSignedUp
     }
     catch(err){

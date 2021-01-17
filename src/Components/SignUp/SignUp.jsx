@@ -15,7 +15,7 @@ const SignUp = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
 
-    const isSuccess = await signUp(email,password)
+    const isSuccess = await signUp(email,password,userName)
     console.log(isSuccess.uid)
 
     //code for adding to postgresql db

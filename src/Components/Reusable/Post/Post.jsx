@@ -1,32 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Post.css'
+import moment from 'moment'
+const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,createdAt}) => {
 
-const Post = ({postID,userID,username,title,content,likeCount,commentCount,subreddit,createedAt}) => {
+  const [post, setPost] = React.useState('')
+
+  React.useEffect(() => {
+    setPost(content.replace(new RegExp('\r?\n','g'), '<br/>'))
+  }, [])
   return (
     <article className="post">
       <div className="post__container">
         <div className="post__row">
           <div className="post__subreddit">
-            <Link to="subredit">
-              <h1>TD/All</h1>
+            <Link to={`/${subreddit}`}>
+              <h1>TD/{subreddit}</h1>
             </Link>
           </div>
           <div className="post__user">
-            <Link to="userid">
-              <h3>By JoshuaT45 on 19th December 2020</h3>
+            <Link to={`/user/${username}`}>
+              <h3>u/{username} posted this {moment(createdAt,'YYYYMMDD').fromNow()}</h3>
             </Link>
           </div>
         </div>
 
         <div className="post__row">
           <div className="post__title">
-            <Link to="1">
-              <h1>Welcome to Devstagram</h1>
+            <Link to={`/post/${postID}`}>
+              <h1>{title}</h1>
             </Link>
           </div>
           <div className="post__content">
-            <p>ellat. est accusantis amet illo quo. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos voluptas placeat, quisquam, nam laboriosam, eum corrupti harum veniam esse officiis sunt fugit! Recusandae molestias soluta cum velit quos, fugiat aliquam?</p>
+            <p>{post}</p>
           </div>
         </div>
       </div>

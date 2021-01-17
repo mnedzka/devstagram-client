@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import { AuthProvider } from './Components/Context/AuthContext';
+import CreatePost from './Components/CreatePost/Create';
 import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import SignUp from './Components/SignUp/SignUp';
@@ -15,6 +16,9 @@ function App() {
           <Switch>
             <Route exact path="/signup">
               <SignUp />
+            </Route>
+            <Route exact path="/create-post">
+              <CreatePost />
             </Route>
             <Route exact path="/">
               <Home />

@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { LinkButton } from '../Reusable/Buttons/Buttons'
 import {AuthContext} from '../Context/AuthContext'
 import { Link } from 'react-router-dom'
-import {useToast, IconButton} from '@chakra-ui/react'
+import { IconButton } from '@chakra-ui/react'
 
 import { MdHome, MdSettings } from 'react-icons/md'
 import { IoMdGlobe } from 'react-icons/io'
@@ -12,31 +12,7 @@ import './Navbar.css'
 const Navbar = () => {
 
   const {currentUser} = useContext(AuthContext)
-  const toast = useToast()
 
-  useEffect(() => {
-    setTimeout(() => {
-
-      currentUser.uid ? (
-  
-        toast({
-          title: `Hey, welcome back`,
-          description: "So, mind telling us how your day was?",
-          status: "info",
-          duration: 3000,
-          isClosable: true,
-        })
-      ) : (
-        toast({
-          title: `Hey, you seem new here`,
-          description: "Consider signing up so you can make you of all the features",
-          status: "info",
-          duration: 5000,
-          isClosable: true,
-        })
-      )
-    }, 1000)
-  }, [currentUser])
   return (
     <nav className="navbar" >
       <div className="navbar__container">

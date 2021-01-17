@@ -17,10 +17,12 @@
 .post__subreddit h1 {
   font-size: 14px;
   font-weight: 700;
+  font-family: "Jetbrains Mono";
   color: #4FD1C5;
 }
 
 .post__user h3 {
+  font-family: "Jetbrains Mono";
   font-size: 12px;
   color: #e0d9d9;
   font-weight: 500;
