@@ -32,7 +32,7 @@ const CreatePost = () => {
       }
       
       const response = await axios.post('http://localhost:5000/posts/add', formatDetails)
-      history.push(`/posts/${response.data.postID}`)
+      history.push(`/post/${response.data.postID}`)
     } else {
       toast({
         title: "Failed to add post",

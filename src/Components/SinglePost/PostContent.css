@@ -1,0 +1,28 @@
+.single-post-content__container {
+  width: 95%;
+  margin: auto;
+}
+
+.single-post-content__post-details {
+  margin: 0 0 20px;
+}
+
+.single-post-content__subreddit {
+  font-family: 'Jetbrains Mono';
+  font-weight: 700;
+  font-size: 14px;
+  color: #4FD1C5;
+}
+
+.single-post-content__username {
+  font-size: 12px;
+  font-family: 'Jetbrains Mono';
+  font-weight: 500;
+  color: #e0d9d9;
+}
+
+.single-post-content__title {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: 'Inter';
+}

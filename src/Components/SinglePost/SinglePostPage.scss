@@ -1,0 +1,19 @@
+@import '../../config';
+
+.single-post{
+  width: 100%;
+  background-color: $backgroundColor;
+  min-height: calc(100vh - 70px);
+
+  padding: 40px 0;
+
+  &__container{
+    width: 90%;
+    margin: auto;
+
+    padding: 20px 20px 30px;
+
+    color: white;
+    background-color: $postBackground;
+  }
+}

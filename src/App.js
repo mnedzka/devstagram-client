@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './App.css';
 import { AuthProvider } from './Components/Context/AuthContext';
 import CreatePost from './Components/CreatePost/Create';
 import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import SignUp from './Components/SignUp/SignUp';
+
+import './App.css';
 import SinglePostContent from './Components/SinglePost/PostContent';
+import SinglePostPage from './Components/SinglePost/SinglePostPage';
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
               <CreatePost />
             </Route>
             <Route exact path="/post/:postID">
-              <SinglePostContent />
+              <SinglePostPage />
             </Route>
             <Route exact path="/">
               <Home />

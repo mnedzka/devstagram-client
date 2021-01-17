@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React from 'react'
+import SinglePostContent from './PostContent'
+
+import './SinglePostPage.css'
 
 const SinglePostPage = () => {
 
-  useEffect(() => {
-
-  }, [])
   return (
     <section className="single-post">
-      
+      <div className="single-post__container">
+        <SinglePostContent />
+      </div>
     </section>
   )
 }
