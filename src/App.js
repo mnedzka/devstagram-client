@@ -5,6 +5,7 @@ import CreatePost from './Components/CreatePost/Create';
 import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import SignUp from './Components/SignUp/SignUp';
+import SinglePostContent from './Components/SinglePost/PostContent';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route exact path="/create-post">
               <CreatePost />
+            </Route>
+            <Route exact path="/post/:postID">
+              <SinglePostContent />
             </Route>
             <Route exact path="/">
               <Home />

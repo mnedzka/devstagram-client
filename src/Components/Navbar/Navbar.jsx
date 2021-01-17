@@ -41,7 +41,7 @@ const Navbar = () => {
           ) : (
             <div className="navbar__buttons">
               <LinkButton buttonText="SignUp" buttonColor="blue" buttonSize="md" buttonVariant="filled" link="signup"/>
-              <LinkButton buttonText="Login" buttonColor="blue" buttonSize="md" buttonVariant="outlined" link="/login"/>
+              <LinkButton buttonText="Login" buttonColor="blue" buttonSize="md" buttonVariant="outlined" link="login"/>
             </div>
         )}
       </div>
