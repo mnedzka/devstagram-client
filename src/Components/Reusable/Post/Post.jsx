@@ -7,7 +7,9 @@ const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,cr
   const [post, setPost] = React.useState('')
 
   React.useEffect(() => {
-    setPost(content.replace(new RegExp('\r?\n','g'), '<br/>'))
+    console.log(content)
+    setPost(content.replace(/\n/g, '\n'))
+    // setPost(content.replace(new RegExp('\r?\n','g'), '<br/>'))
   }, [])
   return (
     <article className="post">

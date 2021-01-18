@@ -6,7 +6,7 @@ import Navbar from './Components/Navbar/Navbar';
 import SignUp from './Components/SignUp/SignUp';
 
 import './App.css';
-import SinglePostContent from './Components/SinglePost/PostContent';
+
 import SinglePostPage from './Components/SinglePost/SinglePostPage';
 
 function App() {

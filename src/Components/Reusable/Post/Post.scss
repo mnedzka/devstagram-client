@@ -3,7 +3,7 @@
 
 .post{
   width: 100%;
-  max-height: 350px;
+  max-height: 300px;
 
   overflow: hidden;
 
@@ -47,6 +47,7 @@
   }
 
   &__content p{
-    color: $fontFade
+    color: $fontFade;
+    white-space: break-spaces;
   }
 }

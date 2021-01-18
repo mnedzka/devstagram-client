@@ -25,7 +25,8 @@ const SinglePostContent = () => {
       setSubreddit(subreddit)
       setUserName(username)
       setTitle(title)
-      setContent(content)
+
+      setContent(content.replace(/\n/g, '\n'))
       setCreatedAt(createdat)
     }
     getPostContent()

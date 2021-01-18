@@ -1,6 +1,6 @@
 .post {
   width: 100%;
-  max-height: 350px;
+  max-height: 300px;
   overflow: hidden;
   color: white;
   background-color: #011627;
@@ -36,4 +36,5 @@
 
 .post__content p {
   color: #e0d9d9;
+  white-space: break-spaces;
 }

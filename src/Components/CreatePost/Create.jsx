@@ -22,11 +22,10 @@ const CreatePost = () => {
   const handleSubmit = async(e) => {
     e.preventDefault()
     if(currentUser.uid){
-      const newContent = await content.replace(new RegExp('\r?\n','g'), '<br/>')
 
       const formatDetails = await {
         title,
-        content: newContent ,
+        content ,
         subreddit: selectedSubreddit,
         userName: currentUser.displayName
       }

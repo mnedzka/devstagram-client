@@ -26,3 +26,7 @@
   font-weight: 700;
   font-family: 'Inter';
 }
+
+.single-post-content__para {
+  white-space: break-spaces;
+}
