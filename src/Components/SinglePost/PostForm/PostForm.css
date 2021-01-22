@@ -1,0 +1,39 @@
+.post-form {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.post-form__container {
+  width: 95%;
+  margin: auto;
+  position: relative;
+}
+
+.post-form__textarea {
+  width: 100%;
+  min-height: 100px;
+  background-color: transparent;
+  border: 1.5px solid #4FD1C5;
+  outline: none;
+  font-size: 14px;
+  padding: 10px 5px;
+}
+
+.post-form__textarea:valid ~ label,
+.post-form__textarea:focus ~ label {
+  top: -9px;
+  left: 15px;
+  background-color: #011627;
+  padding: 1px 3px;
+}
+
+.post-form__label {
+  position: absolute;
+  color: #4FD1C5;
+  font-family: "Jetbrains Mono";
+  font-weight: 700;
+  font-size: 13px;
+  left: 5px;
+  top: 5px;
+  transition: 0.5s all ease-in-out;
+}
