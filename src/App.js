@@ -8,6 +8,7 @@ import SignUp from './Components/SignUp/SignUp';
 import './App.css';
 
 import SinglePostPage from './Components/SinglePost/SinglePostPage';
+import Login from './Components/Login/Login';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           <Switch>
             <Route exact path="/signup">
               <SignUp />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
             <Route exact path="/create-post">
               <CreatePost />

@@ -22,7 +22,7 @@ const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,cr
           </div>
           <div className="post__user">
             <Link to={`/user/${username}`}>
-              <h3>u/{username} posted this {moment(createdAt,'YYYYMMDD').fromNow()}</h3>
+              <h3>u/{username} posted this {moment(createdAt).fromNow()}</h3>
             </Link>
           </div>
         </div>
