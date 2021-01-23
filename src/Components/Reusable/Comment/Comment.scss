@@ -4,12 +4,23 @@
   width: 100%;
   color: white;
 
+  margin: 5px 0 20px 0;
+
 
   &__details{
     display: flex;
+    
+    font-size: 12px;
+
+    color: $fontFade;
   }
 
   &__username{
     margin-right: 3px;
+    font-family:'Jetbrains Mono';
+  }
+
+  &__para{
+    white-space: pre;
   }
 }

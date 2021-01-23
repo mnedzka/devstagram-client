@@ -19,9 +19,9 @@ const SinglePostContent = () => {
 
   useEffect(() => {
     const getPostContent = async() => {
-      const postContent = await (await axios.get(`http://localhost:5000/posts/${postID}`)).data
-      console.log(postContent.data)
-      const { subreddit,username,title,content,createdat } = postContent.data.post
+      const postContent = await (await axios.get(`http://localhost:5000/posts/${postID}`))
+
+      const { subreddit,username,title,content,createdat } = postContent.data.data.post
       setSubreddit(subreddit)
       setUserName(username)
       setTitle(title)

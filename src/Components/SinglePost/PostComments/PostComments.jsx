@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Comment from '../../Reusable/Comment/Comment'
 
+import './PostComments.css'
 
 const PostComments = () => {
   const { postID } = useParams()
@@ -19,13 +20,15 @@ const PostComments = () => {
   return (
     <section className="post-comments">
       <div className="post-comments__container">
+        <h1 className="post-comments__title">Comments</h1>
         {
           comments.map(comment => {
+
             return(
               <Comment userName={comment.username} createdAt={comment.createdAt} content={comment.content} commentID={comment.comment_id} />
             )
           })
-        }
+        } 
       </div>
     </section>
   )

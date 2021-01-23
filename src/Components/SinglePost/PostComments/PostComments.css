@@ -1,0 +1,13 @@
+.post-comments {
+  width: 100%;
+}
+
+.post-comments__title {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.post-comments__container {
+  width: 95%;
+  margin: auto;
+}

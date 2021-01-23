@@ -14,16 +14,15 @@ const PostForm = () => {
   const { currentUser } = useContext(AuthContext)
   const [comment, setComment] = useState('')
 
-  const handleCommentSubmit = e => {
+  const handleCommentSubmit = async(e) => {
     e.preventDefault()
     if(currentUser){
-
       const formattedDetails = {
         userName: currentUser.displayName,
         content: comment,
         postID
       }
-      axios.post('http://localhost:5000/comments/add', formattedDetails)
+      const commentDetails = await axios.post('http://localhost:5000/comments/add', formattedDetails)
     } else {
       toast({
         title: "Failed to add comment",

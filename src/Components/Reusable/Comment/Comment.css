@@ -1,12 +1,20 @@
 .comment {
   width: 100%;
   color: white;
+  margin: 5px 0 20px 0;
 }
 
 .comment__details {
   display: flex;
+  font-size: 12px;
+  color: #e0d9d9;
 }
 
 .comment__username {
   margin-right: 3px;
+  font-family: 'Jetbrains Mono';
+}
+
+.comment__para {
+  white-space: pre;
 }
