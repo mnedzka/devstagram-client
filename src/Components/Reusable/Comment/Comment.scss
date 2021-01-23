@@ -1,0 +1,15 @@
+@import '../../../config';
+
+.comment{
+  width: 100%;
+  color: white;
+
+
+  &__details{
+    display: flex;
+  }
+
+  &__username{
+    margin-right: 3px;
+  }
+}

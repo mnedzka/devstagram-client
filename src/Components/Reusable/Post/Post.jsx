@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Post.css'
 import moment from 'moment'
+
+import axios from 'axios'
+
 const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,createdAt}) => {
 
   const [post, setPost] = React.useState('')
@@ -9,6 +12,12 @@ const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,cr
   React.useEffect(() => {
     console.log(content)
     setPost(content.replace(/\n/g, '\n'))
+    const getComments = async() => {
+      const comments = await axios.get(`http://localhost:5000/comments/${postID}`)
+      console.log(comments)
+    
+    }
+    getComments()
     // setPost(content.replace(new RegExp('\r?\n','g'), '<br/>'))
   }, [])
   return (

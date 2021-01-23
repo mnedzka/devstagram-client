@@ -1,12 +1,16 @@
 import React, {useState, useContext} from 'react'
 import axios from 'axios'
+import {useParams} from 'react-router-dom'
 import {AuthContext} from '../../Context/AuthContext'
-import './PostForm.css'
 import { ActionButton } from '../../Reusable/Buttons/Buttons'
 import {useToast} from '@chakra-ui/react'
+
+import './PostForm.css'
+
 const PostForm = () => {
 
   const toast = useToast()
+  const { postID } = useParams()
   const { currentUser } = useContext(AuthContext)
   const [comment, setComment] = useState('')
 
@@ -15,9 +19,11 @@ const PostForm = () => {
     if(currentUser){
 
       const formattedDetails = {
-        username: currentUser.displayName
+        userName: currentUser.displayName,
+        content: comment,
+        postID
       }
-      axios.post('http://localhost:5000/comments/add')
+      axios.post('http://localhost:5000/comments/add', formattedDetails)
     } else {
       toast({
         title: "Failed to add comment",

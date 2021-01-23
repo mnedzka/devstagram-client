@@ -1,0 +1,12 @@
+.comment {
+  width: 100%;
+  color: white;
+}
+
+.comment__details {
+  display: flex;
+}
+
+.comment__username {
+  margin-right: 3px;
+}
