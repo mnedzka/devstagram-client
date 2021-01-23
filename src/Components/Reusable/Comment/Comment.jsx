@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React, {useContext} from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import './Comment.css'
+import { CommentContext } from '../../Context/CommentContext'
 
 const Comment = ({userName, createdAt, content, commentID}) => {
-  
+  const { deleteComment } = useContext(CommentContext)
   return (
     <article className="comment">
       <div className="comment__details">
-        <Link to={`/user/${userName}`}>
+        <Link  onClick={() => deleteComment(commentID)}>
           <h1 className="comment__username">{userName} posted this {moment(createdAt).fromNow()}</h1>
         </Link>
       </div>

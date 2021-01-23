@@ -7,8 +7,9 @@ export const CommentContextProvider = ({children}) => {
 
   const [comments, setComments] = useState([])
 
-  const deleteComment = (commentID) => {
-
+  const deleteComment = async(commentID) => {
+    const deleteComment = await axios.delete(`http://localhost:5000/comments/${commentID}`) 
+    setComments(comments.filter(comment => commentID !== comment.comment_id))
   }
 
   const addComment = comment => {
