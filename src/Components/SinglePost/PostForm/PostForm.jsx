@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import {AuthContext} from '../../Context/AuthContext'
+import { CommentContext } from '../../Context/CommentContext'
+
 import { ActionButton } from '../../Reusable/Buttons/Buttons'
 import {useToast} from '@chakra-ui/react'
 
@@ -12,6 +14,7 @@ const PostForm = () => {
   const toast = useToast()
   const { postID } = useParams()
   const { currentUser } = useContext(AuthContext)
+  const { addComment } = useContext(CommentContext)
   const [comment, setComment] = useState('')
 
   const handleCommentSubmit = async(e) => {
@@ -23,6 +26,8 @@ const PostForm = () => {
         postID
       }
       const commentDetails = await axios.post('http://localhost:5000/comments/add', formattedDetails)
+      addComment(commentDetails.data.data.commentDetails)
+      setComment('')
     } else {
       toast({
         title: "Failed to add comment",
