@@ -6,6 +6,13 @@
 
   margin: 5px 0 20px 0;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__column{
+    flex-grow: 1;
+  }
 
   &__details{
     display: flex;
@@ -22,5 +29,26 @@
 
   &__para{
     white-space: pre;
+  }
+
+  &__edit{
+    font-size: 11px;
+    font-weight: 600;
+
+    outline: none;
+  }
+
+  &__textarea{
+    width: 100%;
+    min-height: 100px;
+
+    padding: 5px;
+
+    background-color: transparent;
+    border: 1.5px solid $textColor;
+  }
+
+  &__buttons{
+    display: flex;
   }
 }

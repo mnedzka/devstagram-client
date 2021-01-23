@@ -12,6 +12,15 @@ export const CommentContextProvider = ({children}) => {
     setComments(comments.filter(comment => commentID !== comment.comment_id))
   }
 
+  const updateComment = async(commentID, content) => {
+    const formatted = {
+      commentID,
+      content
+    }
+    const updatedComment = await axios.put(`http://localhost:5000/comments/${commentID}`, formatted)
+    setComments([...comments, comments.map(comment => comment.comment_id === commentID ? comment.content = content : comment)])
+  } 
+
   const addComment = comment => {
     setComments([comment,...comments])
   }
@@ -28,7 +37,8 @@ export const CommentContextProvider = ({children}) => {
         comments,
         storeComments,
         deleteComment,
-        addComment
+        addComment,
+        updateComment
       }
     }>
       {children}
