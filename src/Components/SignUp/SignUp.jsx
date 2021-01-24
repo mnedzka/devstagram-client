@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 import { ActionButton } from '../Reusable/Buttons/Buttons'
 
@@ -6,7 +7,7 @@ import './SignUp.css'
 
 const SignUp = () => {
   const { signUp } = useContext(AuthContext)
-
+  const history = useHistory()
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -17,6 +18,7 @@ const SignUp = () => {
 
     const isSuccess = await signUp(email,password,userName)
     console.log(isSuccess.uid)
+    history.push('/')
 
     //code for adding to postgresql db
   }

@@ -2,25 +2,38 @@ import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { AuthContext } from '../../Context/AuthContext'
 import { BsHeart, BsHeartFill } from 'react-icons/bs'
-
+import { useToast } from '@chakra-ui/react'
 import './LikeButton.css'
 
 const LikeButton = ({postID}) => {
+  const toast = useToast()
   const {currentUser} = useContext(AuthContext)
-  const [didUSerLike, setDidUserLike] = useState(false)
-  const [numOfLikes, setNumOfLikes] = useState(0)
+  const [didUSerLike, setDidUserLike] = useState()
+  const [numOfLikes, setNumOfLikes] = useState()
 
 
   const likePost = async() => {
-    const formattedDetails = {
-      userName: await currentUser.displayName,
-      postID
-    }
-    console.log(formattedDetails)
+    console.log(currentUser)
+    if(currentUser){
 
-    axios.post('http://localhost:5000/likes/add',formattedDetails)
-    setNumOfLikes(numOfLikes+1)
-    setDidUserLike(true)
+      const formattedDetails = {
+        userName: await currentUser.displayName,
+        postID
+      }
+      console.log(formattedDetails)
+  
+      axios.post('http://localhost:5000/likes/add',formattedDetails)
+      setNumOfLikes(numOfLikes+1)
+      setDidUserLike(true)
+    } else {
+      toast({
+        title: "Cannot cast vote",
+        description: "You need to create an account to like posts",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
+    }
 
   }
 
@@ -38,30 +51,36 @@ const LikeButton = ({postID}) => {
   }
 
   useEffect(() => {
-    const fetchLikes = async() => {
-      const fetch = await axios.get(`http://localhost:5000/likes/${postID}`)
-      console.log(fetch)
-      setDidUserLike(fetch.data.data.likedBy.map(like => like.username === currentUser.displayName ? true : undefined  ))
-      setNumOfLikes(fetch.data.data.numOfLikes)
+    if(currentUser){
+
+      const fetchLikes = async() => {
+        const fetch = await axios.get(`http://localhost:5000/likes/${postID}`)
+        const likeArr = fetch.data.data.likedBy.map(like => like.username)
+        setDidUserLike(likeArr.includes(currentUser.displayName))
+        setNumOfLikes(fetch.data.data.numOfLikes)
+      }
+      fetchLikes()
+    } else {
+
     }
-    fetchLikes()
   }, [])
 
 
   return (
     <>
-      {didUSerLike ? (
+      {didUSerLike && didUSerLike !== undefined ? (
+
         <button className="like__btn" onClick={dislikePost}>
           <BsHeartFill className="heart" />
           <span className="counter">
-            {numOfLikes}, dislike the post
+            {numOfLikes}
           </span>
         </button>
       ) : (
         <button className="like__btn " onClick={likePost}>
-          <BsHeart />
+          <BsHeart className="heart" />
           <span className="counter">
-            {numOfLikes}, like the post now
+            {numOfLikes}
           </span>
         </button>
       )}
