@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import moment from 'moment'
 
 import './PostContent.css'
+import LikeButton from '../../Reusable/LikeButton/LikeButton'
 
 const SinglePostContent = () => {
   const {postID} = useParams()
@@ -50,6 +51,7 @@ const SinglePostContent = () => {
           <p className="single-post-content__para">
             {content}
           </p>
+          <LikeButton postID={postID}/>
         </div>
       </div>
     </section>

@@ -1,0 +1,14 @@
+.like__btn {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 0 0;
+  outline: none;
+}
+
+.heart {
+  fill: red;
+}
+
+.counter {
+  margin: 0 0 0 5px;
+}
