@@ -9,6 +9,7 @@ import './App.css';
 
 import SinglePostPage from './Components/SinglePost/SinglePostPage';
 import Login from './Components/Login/Login';
+import SingleSubreddit from './Components/SingleSubreddit/SingleSubreddit';
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route exact path="/post/:postID">
               <SinglePostPage />
+            </Route>
+            <Route exact path="/:subreddit">
+              <SingleSubreddit />
             </Route>
             <Route exact path="/">
               <Home />
