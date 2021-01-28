@@ -2,10 +2,11 @@ import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 import { ActionButton } from '../Reusable/Buttons/Buttons'
-
+import axios from 'axios'
 import './SignUp.css'
 
 const SignUp = () => {
+  
   const { signUp } = useContext(AuthContext)
   const history = useHistory()
   const [userName, setUserName] = useState('')
@@ -17,11 +18,18 @@ const SignUp = () => {
     e.preventDefault()
 
     const isSuccess = await signUp(email,password,userName)
-    console.log(isSuccess.uid)
+    console.log(isSuccess.user.displayName)
     history.push('/')
 
+    const create = await axios.post('http://localhost:5000/user/create', {
+      uid: isSuccess.user.uid,
+      userName
+    })
+
+    console.log(create)
     //code for adding to postgresql db
   }
+  
 
   return (
     <section className="signup">

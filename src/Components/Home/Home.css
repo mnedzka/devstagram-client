@@ -5,11 +5,21 @@
 }
 
 .home__container {
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
 
 .home__posts {
   width: 100%;
   padding: 10px 0 20px;
+}
+
+.home__flex {
+  display: grid;
+  grid-template-columns: 3fr 1.3fr;
+}
+
+.home__column {
+  flex-grow: 1;
+  margin: 0 30px 0 0;
 }

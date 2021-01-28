@@ -1,0 +1,47 @@
+@import '../../../config';
+
+.subreddit_about{
+  width: 100%;
+  height: fit-content;
+
+  padding: 30px 20px;
+  margin: 20px 0;
+
+  background-color: $postBackground;
+  color: white;
+
+  font-family: 'Inter';
+
+  text-align: center;
+
+  position: sticky;
+  top: 100px;
+  
+  &__title{
+    color: $textColor;
+
+    font-family:'Jetbrains Mono';
+    font-weight: 700;
+  }
+
+  &__para{
+    color: $fontFade;
+    
+    font-weight: 400;
+    font-size: 15px;
+
+    margin: 5px 0;
+  }
+
+  &__posts{
+    font-size: 25px;
+    font-weight: 700;
+
+    margin: 10px 0;
+  }
+}
+
+
+.posts__num{
+  color: $textColor
+}

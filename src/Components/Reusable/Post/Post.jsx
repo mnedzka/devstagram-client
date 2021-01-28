@@ -10,11 +10,9 @@ const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,cr
   const [post, setPost] = React.useState('')
 
   React.useEffect(() => {
-    console.log(content)
     setPost(content.replace(/\n/g, '\n'))
     const getComments = async() => {
       const comments = await axios.get(`http://localhost:5000/comments/${postID}`)
-      console.log(comments)
     
     }
     getComments()
@@ -25,7 +23,7 @@ const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,cr
       <div className="post__container">
         <div className="post__row">
           <div className="post__subreddit">
-            <Link to={`/${subreddit}`}>
+            <Link to={`/subreddit/${subreddit}`}>
               <h1>TD/{subreddit}</h1>
             </Link>
           </div>

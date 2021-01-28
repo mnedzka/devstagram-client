@@ -31,7 +31,8 @@ function App() {
             <Route exact path="/post/:postID">
               <SinglePostPage />
             </Route>
-            <Route exact path="/:subreddit">
+            <Route path="/subreddit/:subreddit">
+              {/* <Navbar /> */}
               <SingleSubreddit />
             </Route>
             <Route exact path="/">

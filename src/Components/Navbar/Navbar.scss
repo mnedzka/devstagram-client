@@ -21,6 +21,10 @@
     align-items: center
   }
 
+  &__search{
+    width: 40%
+  }
+
   &__header h1{
     color: $textColor;
 

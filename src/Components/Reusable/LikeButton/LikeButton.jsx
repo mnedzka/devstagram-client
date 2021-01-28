@@ -71,14 +71,15 @@ const LikeButton = ({postID}) => {
       {didUSerLike && didUSerLike !== undefined ? (
 
         <button className="like__btn" onClick={dislikePost}>
-          <BsHeartFill className="heart" />
+          <div className={`heart liked ${didUSerLike ? "is_animating" : ""}`}/>
+          
           <span className="counter">
             {numOfLikes}
           </span>
         </button>
       ) : (
         <button className="like__btn " onClick={likePost}>
-          <BsHeart className="heart" />
+          <div className="heart"/>
           <span className="counter">
             {numOfLikes}
           </span>

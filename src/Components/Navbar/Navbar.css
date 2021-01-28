@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+.navbar__search {
+  width: 40%;
+}
+
 .navbar__header h1 {
   color: #4FD1C5;
   font-family: 'Jetbrains Mono';

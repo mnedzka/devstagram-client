@@ -5,12 +5,14 @@ import Post from '../Reusable/Post/Post'
 import { useParams } from 'react-router-dom'
 
 import '../Home/Home.css'
+import SubredditAbout from '../Reusable/SubredditAbout/SubredditAbout'
 
 const SingleSubreddit = () => {
   const { subreddit } = useParams()
 
   const [posts, setPosts] = useState([])
   const [loading, isLoading] = useState(true)
+  const [numOfPosts, setNumOfPosts] = useState(0)
 
   useEffect(() => {
     //use axios to fetch data from backend
@@ -18,6 +20,7 @@ const SingleSubreddit = () => {
       const posts = await axios.get(`http://localhost:5000/posts/subreddit/${subreddit}`)
       const postArr = posts.data.data.posts
       setPosts(postArr) 
+      setNumOfPosts(postArr.length)
       isLoading(false)
 
     }
@@ -38,14 +41,18 @@ const SingleSubreddit = () => {
               </Stack>
             </>
           ) : (
-            <>
-              {posts.map(post => {
-                return(
-                  
-                  <Post postID={post.postid} username={post.username} title={post.title} content={post.content} subreddit={post.subreddit} createdAt={post.createdat}/>
-                )
-              })}
-            </>
+            <div className="home__flex">
+            
+              <div className="home__column">
+                {posts.map(post => {
+                  return(
+                    
+                    <Post postID={post.postid} username={post.username} title={post.title} content={post.content} subreddit={post.subreddit} createdAt={post.createdat}/>
+                  )
+                })}
+              </div>
+              <SubredditAbout numOfPosts={numOfPosts}/>
+            </div>
           )}
           
         </div>

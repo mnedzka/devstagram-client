@@ -1,0 +1,35 @@
+.subreddit_about {
+  width: 100%;
+  height: fit-content;
+  padding: 30px 20px;
+  margin: 20px 0;
+  background-color: #011627;
+  color: white;
+  font-family: 'Inter';
+  text-align: center;
+  position: sticky;
+  top: 100px;
+}
+
+.subreddit_about__title {
+  color: #4FD1C5;
+  font-family: 'Jetbrains Mono';
+  font-weight: 700;
+}
+
+.subreddit_about__para {
+  color: #e0d9d9;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.subreddit_about__posts {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.posts__num {
+  color: #4FD1C5;
+}
