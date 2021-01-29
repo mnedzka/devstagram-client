@@ -38,8 +38,7 @@ const SubredditAbout = ({numOfPosts}) => {
     const fetchSubredditDetails = async() => {
       const fetchDetails = await axios.get(`http://localhost:5000/subreddits/${subreddit}`)
       setAbout(fetchDetails.data.data.about)
-      // setFollowedBy(fetchDetails.data.data.followed_by)
-      setIsFollowing(false)
+      setIsFollowing(fetchDetails.data.data.followed_by.includes(currentUser.displayName))
     }
 
     fetchSubredditDetails()

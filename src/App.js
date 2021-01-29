@@ -10,6 +10,7 @@ import './App.css';
 import SinglePostPage from './Components/SinglePost/SinglePostPage';
 import Login from './Components/Login/Login';
 import SingleSubreddit from './Components/SingleSubreddit/SingleSubreddit';
+import PrivateFeed from './Components/PrivateFeed/PrivateFeed';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route exact path="/post/:postID">
               <SinglePostPage />
+            </Route>
+            <Route path='/feed'>
+              <PrivateFeed />
             </Route>
             <Route path="/subreddit/:subreddit">
               {/* <Navbar /> */}
