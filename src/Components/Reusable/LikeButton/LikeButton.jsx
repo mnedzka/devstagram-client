@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { AuthContext } from '../../Context/AuthContext'
-import { BsHeart, BsHeartFill } from 'react-icons/bs'
 import { useToast } from '@chakra-ui/react'
 import './LikeButton.css'
 
 const LikeButton = ({postID}) => {
   const toast = useToast()
-  const {currentUser} = useContext(AuthContext)
+  const {currentUser, BASE_URL } = useContext(AuthContext)
   const [didUSerLike, setDidUserLike] = useState()
   const [numOfLikes, setNumOfLikes] = useState()
 
@@ -22,7 +21,7 @@ const LikeButton = ({postID}) => {
       }
       console.log(formattedDetails)
   
-      axios.post('http://localhost:5000/likes/add',formattedDetails)
+      axios.post(`${BASE_URL}/likes/add`,formattedDetails)
       setNumOfLikes(numOfLikes+1)
       setDidUserLike(true)
     } else {
@@ -44,7 +43,7 @@ const LikeButton = ({postID}) => {
     }
     const userName = await currentUser.displayName
     console.log(formattedDetails)
-    axios.post('http://localhost:5000/likes/dislike',formattedDetails)
+    axios.post(`${BASE_URL}/likes/dislike`,formattedDetails)
     setNumOfLikes(numOfLikes-1)
     setDidUserLike(false)
 
@@ -54,7 +53,7 @@ const LikeButton = ({postID}) => {
     if(currentUser){
 
       const fetchLikes = async() => {
-        const fetch = await axios.get(`http://localhost:5000/likes/${postID}`)
+        const fetch = await axios.get(`${BASE_URL}/likes/${postID}`)
         const likeArr = fetch.data.data.likedBy.map(like => like.username)
         setDidUserLike(likeArr.includes(currentUser.displayName))
         setNumOfLikes(fetch.data.data.numOfLikes)

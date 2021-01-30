@@ -5,8 +5,10 @@ import Comment from '../../Reusable/Comment/Comment'
 
 import './PostComments.css'
 import { CommentContext } from '../../Context/CommentContext'
+import { AuthContext } from '../../Context/AuthContext'
 
 const PostComments = () => {
+  const { BASE_URL } = useContext(AuthContext)
   const { comments, storeComments } = useContext(CommentContext)
   const { postID } = useParams()
 
@@ -14,7 +16,7 @@ const PostComments = () => {
 
   useEffect(() => {
     const getComments = async() => {
-      const fetchComments = await axios.get(`http://localhost:5000/comments/${postID}`)
+      const fetchComments = await axios.get(`${BASE_URL}/comments/${postID}`)
       storeComments([...fetchComments.data.data.comments])
     }
     getComments()

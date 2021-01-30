@@ -4,11 +4,10 @@ import { Skeleton, Stack } from '@chakra-ui/react'
 import Post from '../Reusable/Post/Post'
 
 import '../Home/Home.css'
-import SubredditAbout from '../Reusable/SubredditAbout/SubredditAbout'
 import { AuthContext } from '../Context/AuthContext'
 
 const PrivateFeed = () => {
-  const { currentUser } = useContext(AuthContext)
+  const { currentUser, BASE_URL } = useContext(AuthContext)
 
   const [posts, setPosts] = useState([])
   const [loading, isLoading] = useState(true)
@@ -16,8 +15,7 @@ const PrivateFeed = () => {
   useEffect(() => {
     //use axios to fetch data from backend
     const fetchData = async() => {
-      const posts = await axios.get(`http://localhost:5000/posts/feed/${currentUser.displayName}`)
-      const postArr = posts.data.data.posts
+      const posts = await axios.get(`${BASE_URL}/posts/feed/${currentUser.displayName}`)
       setPosts(posts.data.data.posts) 
       isLoading(false)
 

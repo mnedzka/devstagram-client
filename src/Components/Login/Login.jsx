@@ -1,11 +1,15 @@
+import { useToast } from '@chakra-ui/react'
 import React, { useState, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 import { ActionButton } from '../Reusable/Buttons/Buttons'
 
 import '../SignUp/SignUp.css'
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext)
+  const toast = useToast()
+  const history = useHistory()
+  const { logIn, currentUser } = useContext(AuthContext)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -15,6 +19,18 @@ const Login = () => {
     e.preventDefault()
 
     const isSuccess = await logIn(email,password)
+    if(isSuccess.user){
+      history.push('/')
+      toast({
+        title: "Success",
+        description: `Hey, welcome back`,
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      })
+
+
+    }
   }
 
   return (

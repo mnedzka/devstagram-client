@@ -7,7 +7,7 @@ import './SignUp.css'
 
 const SignUp = () => {
   
-  const { signUp } = useContext(AuthContext)
+  const { signUp, BASE_URL } = useContext(AuthContext)
   const history = useHistory()
   const [userName, setUserName] = useState('')
   const [email, setEmail] = useState('')
@@ -21,7 +21,7 @@ const SignUp = () => {
     console.log(isSuccess.user.displayName)
     history.push('/')
 
-    const create = await axios.post('http://localhost:5000/user/create', {
+    const create = await axios.post(`${BASE_URL}/user/create`, {
       uid: isSuccess.user.uid,
       userName
     })

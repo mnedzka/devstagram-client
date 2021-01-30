@@ -7,7 +7,7 @@ import { AuthContext } from '../../Context/AuthContext'
 import './SubredditAbout.css'
 
 const SubredditAbout = ({numOfPosts}) => {
-  const {currentUser} =  useContext(AuthContext)
+  const {currentUser, BASE_URL } =  useContext(AuthContext)
   const { subreddit } = useParams()
 
   const [isFollowing, setIsFollowing] = useState(false)
@@ -19,7 +19,7 @@ const SubredditAbout = ({numOfPosts}) => {
       username: await currentUser.displayName,
       subreddit
     }
-    const follow = await axios.post('http://localhost:5000/user/follow/subreddit', formattedDetails)
+    const follow = await axios.post(`${BASE_URL}/user/follow/subreddit`, formattedDetails)
     setIsFollowing(true)
   }
 
@@ -28,7 +28,7 @@ const SubredditAbout = ({numOfPosts}) => {
       username: await currentUser.displayName,
       subreddit
     }
-    const unfollow = await axios.post('http://localhost:5000/user/unfollow/subreddit', formattedDetails)
+    const unfollow = await axios.post(`${BASE_URL}/user/unfollow/subreddit`, formattedDetails)
     setIsFollowing(false)
 
   }
@@ -36,7 +36,7 @@ const SubredditAbout = ({numOfPosts}) => {
 
   useEffect(() => {
     const fetchSubredditDetails = async() => {
-      const fetchDetails = await axios.get(`http://localhost:5000/subreddits/${subreddit}`)
+      const fetchDetails = await axios.get(`${BASE_URL}/subreddits/${subreddit}`)
       setAbout(fetchDetails.data.data.about)
       setIsFollowing(fetchDetails.data.data.followed_by.includes(currentUser.displayName))
     }

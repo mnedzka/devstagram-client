@@ -9,14 +9,13 @@ import './Create.css'
 const CreatePost = () => {
   const history = useHistory()
   const toast = useToast()
-  const { currentUser } = useContext(AuthContext)
+  const { currentUser, BASE_URL } = useContext(AuthContext)
 
   const [subreddits, setSubreddits] = useState([])
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [selectedSubreddit, setSelectedSubreddit] = useState('All')
-  const [userName, setUserName] = useState(null)
 
 
   const handleSubmit = async(e) => {
@@ -30,7 +29,7 @@ const CreatePost = () => {
         userName: currentUser.displayName
       }
       
-      const response = await axios.post('http://localhost:5000/posts/add', formatDetails)
+      const response = await axios.post(`${BASE_URL}/posts/add`, formatDetails)
       history.push(`/post/${response.data.postID}`)
     } else {
       toast({
@@ -46,7 +45,7 @@ const CreatePost = () => {
 
   useEffect(() => {
     const fetchSubreddits = async() => {
-      const subreddits = await axios.get('http://localhost:5000/subreddits')
+      const subreddits = await axios.get(`${BASE_URL}/subreddits`)
       setSubreddits(subreddits.data.subreddits.map(subreddit => subreddit.subreddit))
     }
 

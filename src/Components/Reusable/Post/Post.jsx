@@ -11,12 +11,6 @@ const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,cr
 
   React.useEffect(() => {
     setPost(content.replace(/\n/g, '\n'))
-    const getComments = async() => {
-      const comments = await axios.get(`http://localhost:5000/comments/${postID}`)
-    
-    }
-    getComments()
-    // setPost(content.replace(new RegExp('\r?\n','g'), '<br/>'))
   }, [])
   return (
     <article className="post">

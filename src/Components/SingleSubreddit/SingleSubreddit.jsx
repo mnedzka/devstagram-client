@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { Skeleton, Stack } from '@chakra-ui/react'
 import Post from '../Reusable/Post/Post'
@@ -6,8 +6,10 @@ import { useParams } from 'react-router-dom'
 
 import '../Home/Home.css'
 import SubredditAbout from '../Reusable/SubredditAbout/SubredditAbout'
+import { AuthContext } from '../Context/AuthContext'
 
 const SingleSubreddit = () => {
+  const { BASE_URL } = useContext(AuthContext)
   const { subreddit } = useParams()
 
   const [posts, setPosts] = useState([])
@@ -17,7 +19,7 @@ const SingleSubreddit = () => {
   useEffect(() => {
     //use axios to fetch data from backend
     const fetchData = async() => {
-      const posts = await axios.get(`http://localhost:5000/posts/subreddit/${subreddit}`)
+      const posts = await axios.get(`${BASE_URL}/posts/subreddit/${subreddit}`)
       const postArr = posts.data.data.posts
       setPosts(postArr) 
       setNumOfPosts(postArr.length)

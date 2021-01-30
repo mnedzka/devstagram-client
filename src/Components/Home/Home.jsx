@@ -1,10 +1,14 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect,useContext} from 'react'
 import axios from 'axios'
-import './Home.css'
 import { Skeleton, Stack } from '@chakra-ui/react'
 import Post from '../Reusable/Post/Post'
 
+import { AuthContext } from '../Context/AuthContext'
+
+import './Home.css'
+
 const Home = () => {
+  const { BASE_URL } = useContext(AuthContext)
 
   const [posts, setPosts] = useState([])
   const [loading, isLoading] = useState(true)
@@ -12,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     //use axios to fetch data from backend
     const fetchData = async() => {
-      const posts = await axios.get('http://localhost:5000/posts')
+      const posts = await axios.get(`${BASE_URL}/posts`)
       console.log(posts)
       const postArr = posts.data.data.posts
       setPosts(postArr) 

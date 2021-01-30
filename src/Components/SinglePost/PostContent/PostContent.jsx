@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import {Link, useParams } from 'react-router-dom'
 import moment from 'moment'
 
 import './PostContent.css'
 import LikeButton from '../../Reusable/LikeButton/LikeButton'
+import { AuthContext } from '../../Context/AuthContext'
 
 const SinglePostContent = () => {
+  const { BASE_URL } = useContext(AuthContext)
+
   const {postID} = useParams()
   const [username, setUserName] = useState('')
   const [subreddit, setSubreddit] = useState('')
@@ -20,7 +23,7 @@ const SinglePostContent = () => {
 
   useEffect(() => {
     const getPostContent = async() => {
-      const postContent = await (await axios.get(`http://localhost:5000/posts/${postID}`))
+      const postContent = await (await axios.get(`${BASE_URL}/posts/${postID}`))
 
       const { subreddit,username,title,content,createdat } = postContent.data.data.post
       setSubreddit(subreddit)
@@ -37,12 +40,16 @@ const SinglePostContent = () => {
     <section className="single-post-content">
       <div className="single-post-content__container">
         <div className="single-post-content__post-details">
-          <h2 className="single-post-content__subreddit">
-            TP/{subreddit}
-          </h2>
-          <h3 className="single-post-content__username">
-            By u/{username} {moment(createdAt,'YYYYMMDD').fromNow()}
-          </h3>
+          <Link to={`/subreddit/${subreddit}`}>
+            <h2 className="single-post-content__subreddit">
+              TP/{subreddit}
+            </h2>
+          </Link>
+          <Link to={`/user/${username}`}>
+            <h3 className="single-post-content__username">
+              By u/{username} {moment(createdAt,'YYYYMMDD').fromNow()}
+            </h3>
+          </Link>
         </div>
         <div className="single-post-content__post-content">
           <h1 className="single-post-content__title">

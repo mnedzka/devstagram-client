@@ -25,18 +25,26 @@ export const AuthProvider = ({children}) => {
   }
 
   const logIn = async(email,password) => {
-    await auth.signInWithEmailAndPassword(email,password)
-    
-    .catch(err => alert(err.message))
+    try{
+
+      const login = await auth.signInWithEmailAndPassword(email,password)
+      return login
+    } catch(err) {
+
+      alert(err.message)
+    }
   }
+
+  const logout = async() => {
+    auth.signOut()
+  }
+
+  const BASE_URL = 'http://localhost:5000'
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user)
     })
-
-    
-
     return unsubscribe
   }, [])
 
@@ -47,7 +55,9 @@ export const AuthProvider = ({children}) => {
       {
         currentUser,
         signUp,
-        logIn
+        logout,
+        logIn,
+        BASE_URL
       }
     }>
       {children}

@@ -2,17 +2,32 @@ import React, { useContext } from 'react'
 import { LinkButton } from '../Reusable/Buttons/Buttons'
 import {AuthContext} from '../Context/AuthContext'
 import { Link } from 'react-router-dom'
-import { IconButton } from '@chakra-ui/react'
+import { IconButton, useToast } from '@chakra-ui/react'
 import { MdHome, MdSettings } from 'react-icons/md'
 import { IoMdGlobe } from 'react-icons/io'
 import { FaPlus } from 'react-icons/fa'
-
+import { GrLogout } from 'react-icons/gr'
 
 import './Navbar.css'
 
 const Navbar = () => {
-  const {currentUser} = useContext(AuthContext)
+  const toast = useToast()
+  const {currentUser, logout} = useContext(AuthContext)
 
+  const handleLogout = () => {
+    const response  = window.confirm('Are you sure you want to logout?');
+
+    if(response){
+      logout()
+      toast({
+        title: "Success",
+        description: "You have been successfully logged out",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      })
+    }
+  }
 
   return (
     <nav className="navbar" >
@@ -36,9 +51,9 @@ const Navbar = () => {
               <Link to="/feed">
                 <IconButton icon={<MdHome />}  bg={'#4FD1C5'} mx="10px" _hover={{opacity:"0.85"}} />
               </Link>
-              <Link to="/settings">
-                <IconButton icon={<MdSettings />}  bg={'#4FD1C5'} _hover={{opacity:"0.85"}} />
-              </Link>
+              <span onClick={handleLogout}>
+                <IconButton icon={<GrLogout />}  bg={'#4FD1C5'} _hover={{opacity:"0.85"}} />
+              </span>
             </div>
 
           ) : (
