@@ -1,6 +1,6 @@
 .signup {
   width: 100%;
-  height: calc(100vh - 70px);
+  min-height: 100vh;
   background-color: #1A202C;
 }
 

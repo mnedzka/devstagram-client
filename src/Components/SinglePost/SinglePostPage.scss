@@ -3,9 +3,9 @@
 .single-post{
   width: 100%;
   background-color: $backgroundColor;
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
 
-  padding: 40px 0;
+  padding: 80px 0;
 
   &__container{
     width: 90%;
