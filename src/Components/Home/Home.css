@@ -1,13 +1,18 @@
 .home {
   width: 100%;
-  min-height: 100vh;
-  padding: 80px 0;
+  min-height: calc(100vh - 70px);
   background-color: #1A202C;
 }
 
 .home__container {
   width: 85%;
   margin: auto;
+}
+
+@media (max-width: 800px) {
+  .home__container {
+    width: 95%;
+  }
 }
 
 .home__posts {

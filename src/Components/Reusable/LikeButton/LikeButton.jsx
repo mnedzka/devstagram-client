@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext'
 import { useToast } from '@chakra-ui/react'
 import './LikeButton.css'
 
-const LikeButton = ({postID}) => {
+const LikeButton = () => {
+  const {postID} = useParams()
   const toast = useToast()
   const {currentUser, BASE_URL } = useContext(AuthContext)
   const [didUSerLike, setDidUserLike] = useState()
@@ -13,7 +15,7 @@ const LikeButton = ({postID}) => {
 
   const likePost = async() => {
     console.log(currentUser)
-    if(currentUser){
+    if(await currentUser){
 
       const formattedDetails = {
         userName: await currentUser.displayName,
@@ -60,9 +62,15 @@ const LikeButton = ({postID}) => {
       }
       fetchLikes()
     } else {
-
+      const fetchLikes = async() => {
+        const fetch = await axios.get(`${BASE_URL}/likes/${postID}`)
+        setNumOfLikes(fetch.data.data.numOfLikes)
+      }
+      fetchLikes()
     }
-  }, [])
+  }, [currentUser])
+  
+  
 
 
   return (

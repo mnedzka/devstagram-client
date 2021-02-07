@@ -1,5 +1,5 @@
 .comment {
-  width: 100%;
+  max-width: 100%;
   color: white;
   margin: 5px 0 20px 0;
   display: flex;
@@ -23,7 +23,7 @@
 }
 
 .comment__para {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .comment__edit {

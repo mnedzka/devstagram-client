@@ -1,6 +1,6 @@
 .signup {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
   background-color: #1A202C;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .signup__form {
-  transform: translateY(-70px);
+  transform: translateY(70px);
   background-color: #011627;
   padding: 40px 60px;
   border-radius: 5px;

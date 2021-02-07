@@ -18,7 +18,7 @@
     width: 95%;
     margin: auto;
 
-    padding: 20px 0;
+    padding: 20px 0px;
   }
 
   &__subreddit h1{
@@ -49,6 +49,6 @@
 
   &__content p{
     color: $fontFade;
-    white-space: break-spaces;
+    white-space: pre-wrap;
   }
 }

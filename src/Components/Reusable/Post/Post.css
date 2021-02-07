@@ -11,7 +11,7 @@
 .post__container {
   width: 95%;
   margin: auto;
-  padding: 20px 0;
+  padding: 20px 0px;
 }
 
 .post__subreddit h1 {
@@ -36,5 +36,5 @@
 
 .post__content p {
   color: #e0d9d9;
-  white-space: break-spaces;
+  white-space: pre-wrap;
 }

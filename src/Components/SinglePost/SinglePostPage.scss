@@ -3,9 +3,13 @@
 .single-post{
   width: 100%;
   background-color: $backgroundColor;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
 
-  padding: 80px 0;
+  padding: 40px 0;
+
+  @media (max-width: 600px){
+    padding: 20px 0
+  }
 
   &__container{
     width: 90%;
@@ -15,5 +19,9 @@
 
     color: white;
     background-color: $postBackground;
+
+    @media (max-width: 600px){
+      width: 95%;
+    }
   }
 }

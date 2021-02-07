@@ -1,7 +1,7 @@
 @import '../../../config';
 
 .comment{
-  width: 100%;
+  max-width: 100%;
   color: white;
 
   margin: 5px 0 20px 0;
@@ -28,7 +28,7 @@
   }
 
   &__para{
-    white-space: pre;
+    white-space: pre-wrap;
   }
 
   &__edit{

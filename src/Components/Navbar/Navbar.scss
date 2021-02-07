@@ -4,14 +4,11 @@
   width: 100%;
   height: 70px;
 
-  background: rgba(1, 22, 39, 0.8);
+  background-color: $postBackground;
 
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 999;
-
-  backdrop-filter: blur(20px);
-  // background: rgba( 82, 22, 22, 0.65 );
 
   &__container{
     width: 90%;

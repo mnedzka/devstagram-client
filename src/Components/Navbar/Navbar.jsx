@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { LinkButton } from '../Reusable/Buttons/Buttons'
 import {AuthContext} from '../Context/AuthContext'
 import { Link } from 'react-router-dom'
 import { IconButton, useToast } from '@chakra-ui/react'
-import { MdHome, MdSettings } from 'react-icons/md'
+import { MdHome } from 'react-icons/md'
 import { IoMdGlobe } from 'react-icons/io'
 import { FaPlus } from 'react-icons/fa'
 import { GrLogout } from 'react-icons/gr'
@@ -13,6 +13,8 @@ import './Navbar.css'
 const Navbar = () => {
   const toast = useToast()
   const {currentUser, logout} = useContext(AuthContext)
+
+  const [isMobile, setIsMobile] = useState(true)
 
   const handleLogout = () => {
     const response  = window.confirm('Are you sure you want to logout?');
@@ -28,14 +30,26 @@ const Navbar = () => {
       })
     }
   }
+  useEffect(() => {
+    const handleResize = () => {
+      window.innerWidth < 700 ? setIsMobile(true) : setIsMobile(false)
+    
+}
+
+    window.addEventListener('resize', handleResize)
+  })
 
   return (
-    <nav className="navbar" >
+    <nav className="navbar"  >
       <div className="navbar__container">
         
         <div className="navbar__header">
           <Link to="/">
-            <h1>TheDevstagram</h1>
+            {isMobile ? (
+              <h1>TD</h1>
+              ) : (
+              <h1>TheDevstagram</h1>
+            )}
           </Link>
         </div>
 

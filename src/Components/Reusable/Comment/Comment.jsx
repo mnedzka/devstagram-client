@@ -21,7 +21,8 @@ const Comment = ({userName, createdAt, content, commentID}) => {
     setIsEditing(false)
   }
   return (
-    <article className="comment">
+    <article className="comment" s3>
+    
       <div className="comment__column">
 
         <div className="comment__details">

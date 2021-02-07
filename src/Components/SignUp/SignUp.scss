@@ -2,7 +2,7 @@
 
 .signup{
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 70px);
 
   background-color: $backgroundColor;
 
@@ -15,7 +15,7 @@
   }
 
   &__form{
-    transform: translateY(-70px);
+    transform: translateY(70px);
 
     background-color: $postBackground;
 
