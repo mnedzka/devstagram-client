@@ -44,7 +44,7 @@ const SubredditAbout = ({numOfPosts}) => {
     fetchSubredditDetails()
   },  [])
   return (
-    <section className="subreddit_about">
+    <aside className="subreddit_about">
       <div className="subreddit_about__container">
         <h1 className="subreddit_about__title">TP/{subreddit}</h1>
         <p className="subreddit_about__para">{about}</p>
@@ -60,7 +60,7 @@ const SubredditAbout = ({numOfPosts}) => {
           </div>
         )}
       </div>
-    </section>
+    </aside>
   )
 }
 

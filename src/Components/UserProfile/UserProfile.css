@@ -1,1 +1,14 @@
-/* No CSS */
+.user {
+  width: 100%;
+  background-color: #1A202C;
+  min-height: calc(100vh - 80px);
+  padding: 20px 0px;
+}
+
+.user__container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 3fr 1.3fr;
+  gap: 30px;
+}

@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import axios from 'axios'
 
-const Post = ({postID,username,title,content,likeCount,commentCount,subreddit,createdAt}) => {
+const Post = ({postID,username,title,content,subreddit,createdAt}) => {
 
   const [post, setPost] = React.useState('')
 

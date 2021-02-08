@@ -29,7 +29,7 @@ const LikeButton = () => {
     } else {
       toast({
         title: "Cannot cast vote",
-        description: "You need to create an account to like posts",
+        description: "You need to create an account to like/dislike a post",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -39,16 +39,25 @@ const LikeButton = () => {
   }
 
   const dislikePost = async() => {
-    const formattedDetails = {
-      userName: await currentUser.displayName,
-      postID
+    if(currentUser){  
+      const formattedDetails = {
+        userName: await currentUser.displayName,
+        postID
+      }
+      const userName = await currentUser.displayName
+      console.log(formattedDetails)
+      axios.post(`${BASE_URL}/likes/dislike`,formattedDetails)
+      setNumOfLikes(numOfLikes-1)
+      setDidUserLike(false)
+    } else {
+      toast({
+        title: "Cannot cast vote",
+        description: "You need to create an account to like post",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
     }
-    const userName = await currentUser.displayName
-    console.log(formattedDetails)
-    axios.post(`${BASE_URL}/likes/dislike`,formattedDetails)
-    setNumOfLikes(numOfLikes-1)
-    setDidUserLike(false)
-
   }
 
   useEffect(() => {
