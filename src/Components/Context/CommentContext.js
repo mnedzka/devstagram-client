@@ -2,13 +2,13 @@ import React,{ createContext, useReducer, useState } from 'react'
 import axios from 'axios'
 
 export const CommentContext = createContext()
-
+const BASE_URL = 'http://localhost:5000'
 export const CommentContextProvider = ({children}) => {
 
   const [comments, setComments] = useState([])
 
   const deleteComment = async(commentID) => {
-    const deleteComment = await axios.delete(`http://localhost:5000/comments/${commentID}`) 
+    const deleteComment = await axios.delete(`${BASE_URL}/comments/${commentID}`) 
     setComments(comments.filter(comment => commentID !== comment.comment_id))
   }
 
@@ -17,7 +17,7 @@ export const CommentContextProvider = ({children}) => {
       commentID,
       content
     }
-    const updatedComment = await axios.put(`http://localhost:5000/comments/${commentID}`, formatted)
+    const updatedComment = await axios.put(`${BASE_URL}/comments/${commentID}`, formatted)
     setComments([...comments, comments.map(comment => comment.comment_id === commentID ? comment.content = content : comment)])
   } 
 

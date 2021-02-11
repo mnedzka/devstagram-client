@@ -30,3 +30,25 @@
 .single-post-content__para {
   white-space: break-spaces;
 }
+
+.single-post-content__editing {
+  margin: 0 0 50px 0;
+}
+
+.single-post-content__buttons {
+  display: flex;
+}
+
+.single-post-content__textarea {
+  height: 200px;
+  width: 100%;
+  background-color: #011627;
+  border: 1.5px solid #4FD1C5;
+  padding: 5px;
+}
+
+.single-post-content__not-editing {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

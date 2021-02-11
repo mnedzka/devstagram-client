@@ -1,4 +1,4 @@
-@import '../../config';
+@import '../../../config';
 
 .single-post-content{
 
@@ -33,5 +33,29 @@
 
   &__para{
     white-space: break-spaces;
+  }
+
+  &__editing{
+    margin: 0 0 50px 0;
+  }
+
+  &__buttons{
+    display: flex
+  }
+
+  &__textarea{
+    height: 200px;
+    width: 100%;
+
+    background-color: $postBackground;
+    border: 1.5px solid $textColor;
+
+    padding: 5px;
+  }
+
+  &__not-editing{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 }

@@ -2,9 +2,7 @@ import React, {useState, useEffect,useContext} from 'react'
 import axios from 'axios'
 import { Skeleton, Stack } from '@chakra-ui/react'
 import Post from '../Reusable/Post/Post'
-
 import { AuthContext } from '../Context/AuthContext'
-
 import './Home.css'
 
 const Home = () => {
@@ -14,11 +12,12 @@ const Home = () => {
   const [loading, isLoading] = useState(true)
 
   useEffect(() => {
-    //use axios to fetch data from backend
+
+
     const fetchData = async() => {
       const posts = await axios.get(`${BASE_URL}/posts`)
-      console.log(posts)
       const postArr = posts.data.data.posts
+
       setPosts(postArr) 
       isLoading(false)
 
